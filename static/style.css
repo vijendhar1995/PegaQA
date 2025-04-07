@@ -1,0 +1,150 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    padding: 10px 20px;
+    background-color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+
+.tabs button:hover {
+    background-color: #ffe0b2;
+}
+
+textarea {
+    width: 100%;
+    height: 80px;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    resize: none;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+input[type="file"] {
+    margin: 10px 0;
+}
+
+button[type="submit"] {
+    background-color: #f48fb1;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1em;
+}
+
+button[type="submit"]:hover {
+    background-color: #ec407a;
+}
+
+.qa-item {
+    background-color: #fff3e0;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    word-wrap: break-word;
+}
+
+.answer {
+    color: rgb(93, 0, 255);
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre-wrap;
+    font-weight: bold;
+}
+
+.timestamp {
+    font-size: 0.8em;
+    color: #666;
+}
+
+/* =============================
+   🔁 Responsive Design Starts Here
+   ============================= */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    textarea {
+        height: 70px;
+        font-size: 0.95em;
+    }
+
+    button[type="submit"],
+    .tabs button {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+
+    .qa-item {
+        padding: 12px;
+        font-size: 0.95em;
+    }
+
+    img, embed {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6em;
+    }
+
+    .tabs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tabs button {
+        width: 100%;
+    }
+
+    textarea {
+        height: 60px;
+        font-size: 0.9em;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        font-size: 1em;
+    }
+}

@@ -1,0 +1,32 @@
+[
+    {
+        "question": "How to delete/ remove data page from clipboard?",
+        "answer": "There are like couple of way we can remove data page by \r\n1. Activity method : Page-Remove\r\n2. Data Trasform : pxClearAllInstancesOfDataPage, this again calls a OOTB function \"pzDeleteAllInstancesOfDeclartivePages\" pass param.DataPage.\r\n3. Activity: pzFlushDatapage",
+        "attachment": null,
+        "timestamp": "2025-04-05 15:15:04"
+    },
+    {
+        "question": "What are the privileges required to use Tracer and Clipboard from User Portal?",
+        "answer": "To open the Tracer tool from a user Portal, ensure that you have the OpenDeveloperForm and clipboardViewer privileges.",
+        "attachment": null,
+        "timestamp": "2025-04-05 15:16:58"
+    },
+    {
+        "question": "Assume you have a flow with three assignments, where a case goes from assignment 1, then goes to assignment 2 and then finally to third assignment. if an assignment is removed in the later release. what happens to the inflight cases in that step?",
+        "answer": "There are many approaches that we can follow please use below url to get in depth overview for this scenario.\r\n\r\nhttps://academy.pega.com/topic/managing-flow-changes-cases-flight/v1/in/11911",
+        "attachment": null,
+        "timestamp": "2025-04-05 16:02:16"
+    },
+    {
+        "question": "Resolving flow issues by using problem flows",
+        "answer": "Pega Platform provides two standard problem flows: FlowProblems for general process configuration issues, and pzStageProblems for stage configuration issues. The problem flow administrator identifies and manages problem flows on the Flow Errors landing page.\r\n\r\nNote: As a best practice, override the default workbasket or problem operator settings in the getFlowProblemOperator routing activity in your application to route the problem to the appropriate destination.",
+        "attachment": null,
+        "timestamp": "2025-04-05 16:12:20"
+    },
+    {
+        "question": "Managing problem flows on the Flow errors page",
+        "answer": "Dev Studio > Case Management > Processes > Flow Errors. The pzLPProblemFlows ListView report associated with this landing page queries worklist and work assignments where the pxFlowName property value starts with FlowProblems. These flow error assignments are initially routed to the operator and assignment type returned by the nonfinal getFlowProblemOperator activity. \r\n\r\nUse the following features to fix problem flows:\r\n\r\nUse Resume Flow if you want to resume flow execution beginning at the step after the paused step. Use this option when the application performs a valid action that is not represented in the flow. For example, a flow contains a decision shape that evaluates a decision table. If the decision table returns a result that does not correspond to a connector in the flow, add the connector to the decision shape and resume it. The flow uses the already-determined decision result to select the appropriate connector and advance to the appropriate shape.\r\n\r\nUse Retry Last Step to resume flow execution by re-executing the step that paused. Use this option to resume flow execution that pauses due to a transient issue such as a connector timeout or failure, or if you resolve an error by reconfiguring a rule used by the flow. For example, if you add a missing result to a decision table to fix a flow error, select Retry last step to reevaluate the decision table to determine the appropriate flow connector.\r\n\r\nUse Restart Flow to start the flow at the initial step. If an issue requires an update to a flow step that the application already processed, resume the flow at the initial step.\r\n\r\nUse Delete Orphan Assignments to delete assignments for which the work item cannot be found. Use this option to resolve flow errors caused by a user lacking access to a needed rule, such as an activity, due to a missing ruleset or privilege. Selecting Delete Orphan Assignments resolves an assignment that a user is otherwise unable to perform.\r\n\r\nhttps://academy.pega.com/topic/managing-problem-flows-flow-errors-page/v1/in/11911",
+        "attachment": null,
+        "timestamp": "2025-04-05 16:33:48"
+    }
+]

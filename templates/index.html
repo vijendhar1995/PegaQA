@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QlickUp ✨</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>QlickUp ✨</h1>
+        <div class="tabs">
+            <button onclick="showTab('ask')">Ask & Answer</button>
+            <button onclick="showTab('list')">All Q&As</button>
+        </div>
+
+        <div id="ask" class="tab-content">
+            <form id="qa-form">
+                <textarea name="question" placeholder="Enter your question..." required></textarea>
+                <textarea name="answer" placeholder="Enter your answer..." required></textarea>
+                <input type="file" name="attachment">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div id="list" class="tab-content" style="display:none;">
+            <div id="qa-list"></div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
+            document.getElementById(tabId).style.display = 'block';
+        }
+
+        document.getElementById('qa-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const response = await fetch('/submit', {
+                method: 'POST',
+                body: formData
+            });
+            if (await response.json()) {
+                alert('Submitted!');
+                this.reset();
+                loadQAs();
+            }
+        });
+
+        async function loadQAs() {
+            const res = await fetch('/data');
+            const data = await res.json();
+            const list = document.getElementById('qa-list');
+            list.innerHTML = '';
+            data.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'qa-item';
+                div.innerHTML = `
+                    <h3>❓ ${item.question}</h3>
+                    <p class="answer">💬 ${item.answer}</p>
+                    ${item.attachment ? `<a href="/${item.attachment}" target="_blank">📎 Attachment</a>` : ''}
+                    <span class="timestamp">🕒 ${item.timestamp}</span>
+                `;
+                list.appendChild(div);
+            });
+        }
+
+        loadQAs();
+    </script>
+</body>
+</html>
